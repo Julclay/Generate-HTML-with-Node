@@ -38,9 +38,13 @@ let {staff} = await inquirer
         chooseIntern()
 
     }else if(staff === 'Finished building the team'){
-        console.log(team)
+    let htmlDoc = render(team)
+    
+    fs.writeFile(outputPath, htmlDoc);
+
     }
     }
+    
     generateTeam(staff)
 
 }
@@ -144,4 +148,4 @@ chooseStaff();
 
 
 
-    // team.push(new Manager())
+    
