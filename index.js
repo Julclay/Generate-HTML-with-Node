@@ -40,7 +40,12 @@ let {staff} = await inquirer
     }else if(staff === 'Finished building the team'){
     let htmlDoc = render(team)
     
-    fs.writeFile(outputPath, htmlDoc);
+    fs.writeFile ("index.html", htmlDoc, err => {
+        
+        if(err){
+            console.log("err")
+        }
+    });
 
     }
     }
@@ -70,6 +75,7 @@ async function chooseManager(){
             name: 'email',
             message: "What is your manager email?",
         },
+
         {
             type: 'input',
             name: 'officeNumber',
@@ -148,4 +154,3 @@ chooseStaff();
 
 
 
-    
